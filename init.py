@@ -3,7 +3,7 @@ from metasrht.app import db, cfg, User, UserType
 
 # Change the alembic connection string
 alembic = configparser.ConfigParser()
-alembic.read('/opt/alembic.ini')
+alembic.read('/etc/sr.ht/alembic.ini.example')
 alembic['alembic']['sqlalchemy.url'] = cfg("meta.sr.ht", "connection-string")
 
 with open('/etc/sr.ht/alembic.ini.example', 'w') as configfile:
