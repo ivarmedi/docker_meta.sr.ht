@@ -8,7 +8,7 @@ python3 /opt/init.py
 
 # alembic
 (
-cd /usr/lib/python3.6/site-packages/${APPLICATION}srht
+cd /usr/lib/python3.6/site-packages/metasrht
 [[ -f /etc/sr.ht/alembic.ini ]] || cp /etc/sr.ht/alembic.ini.example /etc/sr.ht/alembic.ini
 
 if [[ -z "$(alembic-3 -c /etc/sr.ht/alembic.ini current)" ]]; then
@@ -16,4 +16,4 @@ if [[ -z "$(alembic-3 -c /etc/sr.ht/alembic.ini current)" ]]; then
 fi
 )
 
-/usr/bin/gunicorn -- ${APPLICATION}srht.app:app_dispatch -b 0.0.0.0:7000
+/usr/bin/gunicorn -- metasrht.app:app_dispatch -b 0.0.0.0:7000

@@ -1,7 +1,5 @@
 FROM alpine:3.8
 
-ARG application=meta
-
 RUN apk add ca-certificates && \
     wget -qO /etc/apk/keys/alpine@sr.ht.rsa.pub "https://mirror.sr.ht/alpine/sr.ht/alpine%40sr.ht.rsa.pub" && \
     echo "https://mirror.sr.ht/alpine/sr.ht" >> /etc/apk/repositories && \
@@ -10,7 +8,7 @@ RUN apk add ca-certificates && \
     echo "@community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
     echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk add \
-    ${application}.sr.ht \
+    meta.sr.ht \
     py3-pystache@testing \
     py3-flask-login@community \
     py3-beautifulsoup4@community \
