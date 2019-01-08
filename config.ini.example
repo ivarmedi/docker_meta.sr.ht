@@ -1,0 +1,78 @@
+[sr.ht]
+#
+# The name of your network of sr.ht-based sites
+site-name=sr.ht
+#
+# Contact information for the site owners
+owner-name=Drew DeVault
+owner-email=sir@cmpwn.com
+#
+# The source code for your fork of sr.ht
+source-url=https://git.sr.ht/~sircmpwn/srht
+#
+# A secret key to encrypt session cookies with
+secret-key=CHANGEME
+
+[mail]
+#
+# Outgoing SMTP settings
+smtp-host=
+smtp-port=
+smtp-user=
+smtp-password=
+smtp-from=
+#
+# Application exceptions are emailed to this address
+error-to=
+error-from=
+#
+# Your PGP key information (DO NOT mix up pub and priv here)
+# You must remove the password from your secret key, if present.
+# You can do this with gpg --edit-key [key-id], then use the passwd
+# command and do not enter a new password.
+pgp-privkey=
+pgp-pubkey=
+pgp-key-id=
+
+[meta.sr.ht]
+# 
+# URL meta.sr.ht is being served at (protocol://domain)
+origin=http://meta.sr.ht.local
+#
+# Address and port to bind the debug server to
+debug-host=0.0.0.0
+debug-port=5000
+#
+# Configures the SQLAlchemy connection string for the database.
+connection-string=postgresql://postgres@localhost/meta.sr.ht
+#
+# Set to "yes" to automatically run migrations on package upgrade.
+migrate-on-upgrade=yes
+
+[meta.sr.ht::settings]
+# 
+# If "no", public registration will not be permitted.
+registration=no
+#
+# Where to redirect new users upon registration
+onboarding-redirect=http://example.org
+#
+# How many invites each user is issued upon registration (only applicable if
+# open registration is disabled)
+user-invites=5
+
+[meta.sr.ht::aliases]
+#
+# You can add aliases for the client IDs of commonly used OAuth clients here.
+#
+# Example:
+# git.sr.ht=12345
+
+[meta.sr.ht::billing]
+#
+# "yes" to enable the billing system
+enabled=no
+#
+# Get your keys at https://dashboard.stripe.com/account/apikeys
+stripe-public-key=
+stripe-secret-key=
