@@ -31,6 +31,6 @@ RUN apk add ca-certificates && \
 COPY sr.ht.conf /etc/nginx/conf.d
 COPY start.sh /opt/start.sh
 COPY init.py /opt/init.py
-COPY alembic.ini.example /etc/alembic.ini.example
+COPY alembic.ini.example /etc/sr.ht/alembic.ini.example
 
 CMD /opt/start.sh
