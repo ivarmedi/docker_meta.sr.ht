@@ -12,16 +12,17 @@ with open('/etc/sr.ht/alembic.ini.example', 'w') as configfile:
 # Create the schema
 db.create()
 
-username = os.environ['USER_NAME'] if os.environ['USER_NAME'] else "admin" 
-email = os.environ['USER_EMAIL'] if os.environ['USER_EMAIL'] else "admin@example.com"
+username = os.environ.get('USERNAME', False)
+email = os.environ.get('EMAIL', False)
 
-try:
-    user = User.query.filter_by(username=username).one()
-except:
-    user = User(username)
+if username and email:
+    try:
+        user = User.query.filter_by(username=username).one()
+    except:
+        user = User(username)
 
-user.email = email
-user.password = bcrypt.hashpw("password".encode('utf-8'), salt=bcrypt.gensalt()).decode('utf-8')
-user.user_type = UserType.admin
-db.session.add(user)
-db.session.commit()
+    user.email = email
+    user.password = bcrypt.hashpw("password".encode('utf-8'), salt=bcrypt.gensalt()).decode('utf-8')
+    user.user_type = UserType.admin
+    db.session.add(user)
+    db.session.commit()
